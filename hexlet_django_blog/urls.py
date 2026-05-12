@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from hexlet_django_blog import views
 from django.urls import path, include
+from .views import IndexView
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", IndexView.as_view(), name="index"),
     path("articles/", include("hexlet_django_blog.article.urls")),
     path("about/", views.about, name="about"),
     path("admin/", admin.site.urls),
